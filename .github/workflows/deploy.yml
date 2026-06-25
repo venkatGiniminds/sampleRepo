@@ -1,15 +1,15 @@
 name: webMethods CICD
-  on:
-    push:
-      branches: [ main ]            # commit to main => validate + build (+ deploy when enabled)
+on:
+ push:
+      branches: [ main ]
     workflow_dispatch:
       inputs:
         target_env:
           description: "Environment to deploy (dev|sit|prod)"
           default: dev
-  jobs:
+jobs:
     deploy:
-      runs-on: [self-hosted, webmethods]            # your runner on 10.10.20.55
+      runs-on: [self-hosted, webmethods]
       environment: ${{ github.event.inputs.target_env || 'dev' }}
       steps:
         - name: Run on-host pipeline
