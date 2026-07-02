@@ -16,6 +16,6 @@ jobs:
           env:
             ENV: ${{ github.event.inputs.target_env || 'dev' }}
             FORCE: '1'
-            SRC_IS_PASS: ${{ secrets.SRC_IS_PASS }}
+            DEPLOY_ENGINE_IS_PASS: ${{ secrets.DEPLOY_ENGINE_IS_PASS }}
             TGT_IS_PASS: ${{ secrets.TGT_IS_PASS }}
           run: /opt/CICD/scripts/run_pipeline.sh
